@@ -3,19 +3,22 @@
 let number; 
 let operator = ""; 
 let all  = "";  
-let array  = [];  
+let claer  = "";  
 
 
 $(document).ready(function() // main function to get ready the document 
     {
+        if ($(".screen")[0].value == isNaN)
+        {
+            $(".screen")[0].value = "0"
+        }
         
         // this function display the numbers into the label  
         $(".number").click(function (e)
         {
             // target get the DOM object:  if they are div, button etc
-            // value: get the value 
-            // i dont understand what e do here 
-
+            // value: get the value
+            
             number  = e.target.value;
                                        
             if(operator != "")
@@ -26,8 +29,7 @@ $(document).ready(function() // main function to get ready the document
             
             all += number; // to have a 100 and more  numbers  
             
-            $(".screen")[0].value =  all; // update the entry  
-           // why we do need to use [0] // what is the point of that? 
+            $(".screen")[0].value =  all; // update the entry
             
         })
 
@@ -36,6 +38,27 @@ $(document).ready(function() // main function to get ready the document
             operator = e.target.value; // getting the value  
             $(".screen")[0].value = all + operator;   // updating the entry  
         })
+        
+        
+        $(".equal").click(function ()
+        {
+            all  = eval(all) // evaluates the expression  
+            $(".screen")[0].value = all; 
+        })
+        
+        $(".c").click(function ()
+        {
+            all = " ";
+            $(".screen")[0].value =all;
+        })
+        
+        $(".ce").click(function ()
+        {
+            all = $(".screen")[0].value.slice(0,-1); 
+            $(".screen")[0].value = all;
+        })
+        
+        
         
        
 

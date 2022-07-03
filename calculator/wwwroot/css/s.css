@@ -1,4 +1,9 @@
-﻿.number
+﻿body {
+    background-color: darkkhaki;
+}
+
+
+.number
 {
     background-color:  #e6e600;
     border: none;
